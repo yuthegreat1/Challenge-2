@@ -45,14 +45,16 @@ Sub stocks():
                 'increments ticker to the next index
             End If
         Next i
+        'generate greatest increase volume and decrease values
         greatestIncrease = ws.Cells(2, 10).Value
         greatIncreaseTick = ws.Cells(2, 9).Value
         greatestDecrease = ws.Cells(2, 10).Value
         greatDecreaseTick = ws.Cells(2, 9).Value
         greatestVolume = ws.Cells(2, 12).Value
         greatVolTick = ws.Cells(2, 9).Value
-        
         For j = 2 To ticker:
+        'iterate through every ticker value if the value is greater/less
+        'replace the ticker and value for the increase/decrease/volume
             If (ws.Cells(j, 10).Value > greatestIncrease) Then
                 greatestIncrease = ws.Cells(j, 10).Value
                 greatIncreaseTick = ws.Cells(j, 9).Value
@@ -66,17 +68,17 @@ Sub stocks():
                 greatVolTick = ws.Cells(j, 9).Value
             End If
         Next j
-        MsgBox (greatestIncreaseTick)
+        'place all text where required
         ws.Cells(2, 17).Value = greatestIncrease
-        ws.Cells(2, 16).Value = greatestIncreaseTick
+        ws.Cells(2, 16).Value = greatIncreaseTick
         ws.Cells(2, 15).Value = "Greatest % increase"
         ws.Cells(3, 17).Value = greatestDecrease
-        ws.Cells(2, 16).Value = greatestDecreaseTick
+        ws.Cells(3, 16).Value = greatDecreaseTick
         ws.Cells(3, 15).Value = "Greatest % decrease"
         ws.Cells(4, 17).Value = greatestVolume
         ws.Cells(4, 15).Value = "Greatest Volume"
         ws.Cells(4, 16).Value = greatVolTick
-        
-        
     Next ws
+    'iterate though the next worksheet
 End Sub
+
